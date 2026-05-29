@@ -1552,6 +1552,8 @@ void LLAgent::setAFK()
         setControlFlags(AGENT_CONTROL_AWAY | AGENT_CONTROL_STOP);
         gAwayTimer.start();
     }
+
+    LLAppViewer::instance()->setPermitOSHibernation(true);
 }
 
 //-----------------------------------------------------------------------------
@@ -1570,6 +1572,8 @@ void LLAgent::clearAFK()
         sendAnimationRequest(ANIM_AGENT_AWAY, ANIM_REQUEST_STOP);
         clearControlFlags(AGENT_CONTROL_AWAY);
     }
+
+    LLAppViewer::instance()->setPermitOSHibernation(false);
 }
 
 //-----------------------------------------------------------------------------
